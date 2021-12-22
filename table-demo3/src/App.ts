@@ -1,11 +1,13 @@
 import { Vue, Component } from 'vue-property-decorator'
 import ListTable from './components/ListTable.vue'
+import Demo from './components/Demo.vue'
 
 @Component({
   name: 'App',
-  components: { ListTable },
+  components: { ListTable, Demo },
 })
 export default class App extends Vue {
+  $refs: any
   page = {
     pageSize: 10,
     pageNum: 1,
@@ -89,4 +91,28 @@ export default class App extends Vue {
   selectChanged(val: any) {
     this.selected = val
   }
+
+  onClick() {
+    if (this.$refs.content.style.height) {
+      this.$refs.content.style.height = ''
+    } else {
+      this.$refs.content.style.height = '1000px'
+    }
+  }
+  selectValue = ''
+
+  options = [
+    {
+      label: '1',
+      value: '1',
+    },
+    {
+      label: '2',
+      value: '2',
+    },
+    {
+      label: '3',
+      value: '3',
+    },
+  ]
 }
