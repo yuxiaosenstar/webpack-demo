@@ -10,23 +10,23 @@ const RemoveCommentsPlugin = require('./remove-comments-plugin')
  * @type {Configuration}
  */
 const config = {
-  entry: './src/main.js',
+  entry: "./src/main.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  mode: 'none',
+  mode: "none",
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: '你好，webpack',
-      template: './index.html',
+      title: "你好，webpack",
+      template: "./index.html",
     }),
     new CopyWebpackPlugin({
-      patterns: ['public'],
+      patterns: ["public"],
     }),
     new RemoveCommentsPlugin(),
   ],
-}
+};
 
 module.exports = config
